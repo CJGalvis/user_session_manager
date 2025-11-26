@@ -2,6 +2,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class SessionStorage {
   static const _tokenKey = 'auth_token';
+  static const _tokenUser = 'auth_user';
   final FlutterSecureStorage _storage;
 
   SessionStorage({FlutterSecureStorage? storage})
@@ -17,5 +18,13 @@ class SessionStorage {
 
   Future<void> clear() async {
     await _storage.delete(key: _tokenKey);
+  }
+
+  Future<void> saveUserSession(String userString) async {
+    await _storage.write(key: _tokenUser, value: userString);
+  }
+
+  Future<void> getUserSession(String userString) async {
+    await _storage.read(key: _tokenUser);
   }
 }

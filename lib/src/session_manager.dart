@@ -30,4 +30,8 @@ class SessionManager {
       await _onSessionExpired?.call();
     }
   }
+
+  Future<String?> getUserSession() => _storage.getUser();
+
+  Future<void> setUserSession(String data) => _storage.setUser(data);
 }

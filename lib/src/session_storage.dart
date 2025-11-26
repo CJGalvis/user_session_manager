@@ -20,11 +20,11 @@ class SessionStorage {
     await _storage.delete(key: _tokenKey);
   }
 
-  Future<void> saveUserSession(String userString) async {
+  Future<void> setUser(String userString) async {
     await _storage.write(key: _tokenUser, value: userString);
   }
 
-  Future<void> getUserSession(String userString) async {
-    await _storage.read(key: _tokenUser);
+  Future<String?> getUser() async {
+    return await _storage.read(key: _tokenUser);
   }
 }

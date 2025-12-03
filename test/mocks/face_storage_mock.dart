@@ -8,7 +8,7 @@ class FakeStorage extends SessionStorage {
       memory['auth_token'] = token;
 
   @override
-  Future<String?> getToken() async => memory['auth_token'];
+  Future<String> getToken() async => memory['auth_token'] ?? '';
 
   @override
   Future<void> clear() async => memory.clear();

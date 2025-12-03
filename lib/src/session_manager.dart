@@ -20,7 +20,7 @@ class SessionManager {
 
   Future<void> saveToken(String token) => _storage.saveToken(token);
 
-  Future<String?> getToken() => _storage.getToken();
+  Future<String> getToken() => _storage.getToken();
 
   Future<void> clearSession() => _storage.clear();
 

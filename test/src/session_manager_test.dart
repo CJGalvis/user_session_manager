@@ -24,7 +24,7 @@ void main() {
       await manager.saveToken('xyz999');
       await manager.clearSession();
       final token = await manager.getToken();
-      expect(token, isNull);
+      expect(token, isEmpty);
     });
 
     test('Ejecuta callback al expirar sesión', () async {

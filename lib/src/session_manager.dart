@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'session_storage.dart';
 
 typedef OnSessionExpired = Future<void> Function();
@@ -31,7 +33,12 @@ class SessionManager {
     }
   }
 
-  Future<String?> getUserSession() => _storage.getUser();
+  Future<Map<String, dynamic>?> getUserSession() async {
+    final value = await _storage.getUser() ?? '';
+    return json.decode(value);
+  }
 
-  Future<void> setUserSession(String data) => _storage.setUser(data);
+  Future<void> setUserSession(Map<String, dynamic> data) async {
+    await _storage.setUser(json.encode(data));
+  }
 }

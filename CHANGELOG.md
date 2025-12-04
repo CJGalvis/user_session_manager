@@ -1,3 +1,7 @@
+## 0.0.5
+*Feature*
+- Se ajusta el retorno de la session
+
 ## 0.0.4
 *Feature*
 - Se ajusta guardar información de session

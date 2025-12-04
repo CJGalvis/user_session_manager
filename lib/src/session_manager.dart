@@ -34,7 +34,8 @@ class SessionManager {
   }
 
   Future<Map<String, dynamic>?> getUserSession() async {
-    final value = await _storage.getUser() ?? '';
+    final value = await _storage.getUser();
+    if (value == null) return null;
     return json.decode(value);
   }
 
